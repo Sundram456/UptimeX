@@ -1,0 +1,24 @@
+.protected-loading,
+.protected-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.protected-error {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.protected-error h2 {
+    font-size: 32px;
+    margin: 0;
+}
+
+.protected-error p {
+    font-size: 18px;
+    margin: 0;
+}

@@ -1,0 +1,38 @@
+.chart-container {
+    display: grid;
+    gap: 30px;
+}
+
+.chart-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.chart-section h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 300px;
+}
+
+.chart-loading,
+.chart-error {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+}
+
+.chart-error {
+    color: #dc3545;
+}
+
+@media (max-width: 768px) {
+    .chart-wrapper {
+        height: 250px;
+    }
+}
