@@ -1,17 +1,37 @@
 .monitor-card {
-    background: white;
-    border-radius: 12px;
-    padding: 28px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background: var(--bg-glass);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.monitor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent-green));
+    opacity: 0;
+    transition: opacity var(--transition-fast);
 }
 
 .monitor-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-    border-color: rgba(102, 126, 234, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.monitor-card:hover::before {
+    opacity: 1;
 }
 
 .card-header {
@@ -19,117 +39,117 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 20px;
-    gap: 10px;
+    gap: 12px;
 }
 
 .card-title {
-    font-size: 22px;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #2c3e50;
-    margin: 0 0 6px 0;
+    color: var(--text-main);
+    margin: 0 0 4px 0;
     word-break: break-word;
 }
 
 .card-url {
-    font-size: 13px;
-    color: #7c8ba8;
+    font-size: 0.85rem;
+    color: var(--text-muted);
     margin: 0;
     word-break: break-all;
-    max-height: 40px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .status-indicator {
-    padding: 8px 16px;
+    padding: 6px 12px;
     border-radius: 20px;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 0.75rem;
     white-space: nowrap;
-    flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 24px;
-    padding: 18px 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .stat {
     text-align: center;
-    padding: 12px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-    border-radius: 8px;
 }
 
 .stat-label {
-    font-size: 11px;
-    color: #7c8ba8;
+    font-size: 0.75rem;
+    color: var(--text-muted);
     text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
 }
 
 .stat-value {
-    font-size: 26px;
-    font-weight: 800;
-    color: #667eea;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    font-feature-settings: "tnum";
 }
 
 .card-actions {
     display: flex;
-    gap: 12px;
+    gap: 10px;
+    opacity: 0.8;
+    transition: opacity var(--transition-fast);
+}
+
+.monitor-card:hover .card-actions {
+    opacity: 1;
 }
 
 .action-btn {
     flex: 1;
-    padding: 12px 12px;
-    border: 2px solid #e0e8f0;
-    background: white;
-    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    font-weight: 600;
-    font-size: 13px;
-    transition: all 0.3s;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
 }
 
-.action-btn.edit:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-.action-btn.edit:hover {
-    background: #667eea;
-    color: white;
-}
-
-.action-btn.delete {
-    color: #dc3545;
-    border-color: #dc3545;
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .action-btn.delete:hover {
-    background: #dc3545;
-    color: white;
+    background: rgba(255, 118, 117, 0.1);
+    color: var(--accent-red);
+    border-color: var(--accent-red);
 }
 
-@media (max-width: 768px) {
-    .card-header {
-        flex-direction: column;
+@media (max-width: 480px) {
+    .monitor-card {
+        padding: 16px;
     }
 
-    .status-indicator {
-        width: 100%;
-        text-align: center;
+    .card-stats {
+        gap: 10px;
+        padding: 12px 0;
+    }
+
+    .stat-value {
+        font-size: 1.25rem;
     }
 }

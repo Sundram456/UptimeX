@@ -117,18 +117,61 @@ export default function MonitorChart({ monitorId }) {
 
     const chartOptions = {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: 'top',
+                labels: {
+                    color: '#b2bec3', // --text-muted
+                    font: { family: 'Inter', size: 12 },
+                    usePointStyle: true,
+                },
             },
             title: {
                 display: false,
+            },
+            tooltip: {
+                backgroundColor: 'rgba(22, 27, 51, 0.9)', // --bg-surface
+                titleColor: '#fff',
+                bodyColor: '#b2bec3',
+                borderColor: 'rgba(255, 255, 255, 0.1)',
+                borderWidth: 1,
+                padding: 12,
+                cornerRadius: 8,
+                titleFont: { weight: 'bold' },
             },
         },
         scales: {
             y: {
                 beginAtZero: true,
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.05)',
+                },
+                ticks: {
+                    color: '#b2bec3',
+                    font: { size: 11 },
+                },
+                border: { display: false },
+            },
+            x: {
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.05)',
+                },
+                ticks: {
+                    color: '#b2bec3',
+                    font: { size: 11 },
+                    maxRotation: 0,
+                    autoSkip: true,
+                    maxTicksLimit: 8,
+                },
+                border: { display: false },
+            },
+        },
+        elements: {
+            point: {
+                radius: 0,
+                hitRadius: 20,
+                hoverRadius: 6,
             },
         },
     };

@@ -1,56 +1,72 @@
 /* Dashboard Page Styles */
 
 .dashboard-page {
-    padding: 20px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .dashboard-header h1 {
-    font-size: 28px;
-    color: #333;
+    font-size: 2rem;
+    font-weight: 800;
     margin: 0;
+    background: linear-gradient(135deg, var(--text-main) 0%, #dfe6e9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .monitors-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
 }
 
-.loading {
-    text-align: center;
-    padding: 40px;
-    color: #999;
-}
-
+.loading,
 .empty-state {
     text-align: center;
     padding: 60px 20px;
-    color: #999;
+    color: var(--text-muted);
+    background: var(--bg-glass);
+    border-radius: var(--radius-md);
+    border: var(--glass-border);
 }
 
 .empty-state p {
-    font-size: 18px;
-    margin: 0;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px) {
-    .dashboard-page {
-        padding: 15px;
-    }
-
     .dashboard-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
+        gap: 16px;
+    }
+
+    .dashboard-header button {
+        width: 100%;
     }
 
     .monitors-grid {

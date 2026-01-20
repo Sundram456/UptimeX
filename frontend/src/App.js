@@ -4,13 +4,13 @@ import { LoginPage, SignupPage } from './pages/AuthPage';
 import DashboardPage from './pages/DashboardPage';
 import MonitorDetailPage from './pages/MonitorDetailPage';
 import ProtectedRoute from './components/ProtectedRoute';
-import Header from './components/Header';
+import Layout from './components/Layout';
 import { isAuthenticated } from './utils/auth';
 import './App.css';
 
 function App() {
     return (
-        <Router>
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <Routes>
                 {/* Public routes */}
                 <Route
@@ -27,8 +27,9 @@ function App() {
                     path="/dashboard"
                     element={
                         <ProtectedRoute>
-                            <Header />
-                            <DashboardPage />
+                            <Layout>
+                                <DashboardPage />
+                            </Layout>
                         </ProtectedRoute>
                     }
                 />
@@ -36,8 +37,9 @@ function App() {
                     path="/monitor/:id"
                     element={
                         <ProtectedRoute>
-                            <Header />
-                            <MonitorDetailPage />
+                            <Layout>
+                                <MonitorDetailPage />
+                            </Layout>
                         </ProtectedRoute>
                     }
                 />

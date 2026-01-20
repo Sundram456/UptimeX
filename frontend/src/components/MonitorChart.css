@@ -4,31 +4,37 @@
 }
 
 .chart-section {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .chart-section h3 {
-    margin: 0 0 20px 0;
-    color: #333;
-    font-size: 16px;
+    margin: 0 0 24px 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 
 .chart-wrapper {
     position: relative;
-    height: 300px;
+    height: 350px;
 }
 
 .chart-loading,
 .chart-error {
     text-align: center;
-    padding: 40px;
-    color: #999;
+    padding: 60px;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md);
 }
 
 .chart-error {
-    color: #dc3545;
+    color: var(--accent-red);
 }
 
 @media (max-width: 768px) {
