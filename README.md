@@ -1,4 +1,4 @@
-# ServicePulse - Distributed URL Monitoring & Alert System
+# UptimeX - Distributed URL Monitoring & Alert System
 
 **A production-ready SaaS application for monitoring URL health with real-time alerts and analytics.**
 
@@ -6,7 +6,7 @@
 
 ## 🎯 Overview
 
-ServicePulse is a complete monitoring solution that:
+UptimeX is a complete monitoring solution that:
 
 ✅ **Monitors URLs** - HTTP health checks with configurable intervals  
 ✅ **Tracks Performance** - Response times and status codes  
@@ -341,7 +341,7 @@ Load-balanced distribution
 # Database
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=servicepulse
+DB_NAME=uptimex
 DB_USER=postgres
 DB_PASSWORD=your_password
 
@@ -357,7 +357,7 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your_email@gmail.com
 SMTP_PASSWORD=your_app_password
-SMTP_FROM=noreply@servicepulse.com
+SMTP_FROM=noreply@uptimex.com
 
 # Alerts
 ALERT_THRESHOLD_RESPONSE_TIME=5000        # milliseconds

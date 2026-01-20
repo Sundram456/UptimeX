@@ -1,4 +1,4 @@
--- ServicePulse Database Schema
+-- UptimeX Database Schema
 -- Production-grade PostgreSQL schema with proper indexing and constraints
 
 -- Users Table

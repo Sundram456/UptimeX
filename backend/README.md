@@ -1,4 +1,4 @@
-# ServicePulse Backend Documentation
+# UptimeX Backend Documentation
 
 ## Overview
 

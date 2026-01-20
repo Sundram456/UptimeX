@@ -9,10 +9,10 @@ require('dotenv').config();
 // Parse DATABASE_URL to extract database name
 const DATABASE_URL = process.env.DATABASE_URL;
 const dbNameMatch = DATABASE_URL?.match(/\/([^/?]+)(\?|$)/);
-const DB_NAME = dbNameMatch ? dbNameMatch[1] : 'servicepulse';
+const DB_NAME = dbNameMatch ? dbNameMatch[1] : 'uptimex';
 
 // Create connection string for postgres db (default)
-const postgresConnectionString = DATABASE_URL?.replace(/\/[^/?]+(\?|$)/, '/postgres$1') || 
+const postgresConnectionString = DATABASE_URL?.replace(/\/[^/?]+(\?|$)/, '/postgres$1') ||
     `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/postgres`;
 
 const pool = new Pool({
@@ -21,7 +21,7 @@ const pool = new Pool({
 
 async function setup() {
     const client = await pool.connect();
-    
+
     try {
         console.log(`Creating database "${DB_NAME}"...`);
         await client.query(`CREATE DATABASE "${DB_NAME}";`);
@@ -36,17 +36,17 @@ async function setup() {
             process.exit(1);
         }
     }
-    
+
     client.release();
     await pool.end();
-    
+
     // Connect to new database and run schema
     const mainPool = new Pool({
         connectionString: process.env.DATABASE_URL,
     });
-    
+
     const client2 = await mainPool.connect();
-    
+
     try {
         const schema = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
         await client2.query(schema);
@@ -57,7 +57,7 @@ async function setup() {
         await mainPool.end();
         process.exit(1);
     }
-    
+
     client2.release();
     await mainPool.end();
     console.log('Database setup completed!');

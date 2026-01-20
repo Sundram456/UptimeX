@@ -56,7 +56,7 @@ async function triggerAlert(monitorId, userId, email, alertType, message, consec
     // Send email (async, don't wait)
     sendAlertEmail(
         email,
-        `ServicePulse Alert: ${alertType}`,
+        `UptimeX Alert: ${alertType}`,
         generateAlertEmailHtml(alertType, message)
     ).then((success) => {
         if (success) {
@@ -86,14 +86,14 @@ function generateAlertEmailHtml(alertType, message) {
         <html>
             <body style="font-family: Arial, sans-serif;">
                 <div style="background-color: ${bgColor}; color: white; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
-                    <h2 style="margin: 0;">ServicePulse Alert: ${alertType}</h2>
+                    <h2 style="margin: 0;">UptimeX Alert: ${alertType}</h2>
                 </div>
                 <div style="padding: 20px; background-color: #f8f9fa; border-radius: 5px;">
                     <p>${message}</p>
                     <p><small>Sent at: ${new Date().toLocaleString()}</small></p>
                 </div>
                 <hr />
-                <p><small>You are receiving this email because you have monitoring alerts enabled on ServicePulse.</small></p>
+                <p><small>You are receiving this email because you have monitoring alerts enabled on UptimeX.</small></p>
             </body>
         </html>
     `;

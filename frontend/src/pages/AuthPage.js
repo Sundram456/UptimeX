@@ -49,7 +49,7 @@ export function LoginPage() {
     return (
         <div className="auth-container">
             <div className="auth-box">
-                <h1>ServicePulse</h1>
+                <h1>UptimeX</h1>
                 <h2>Login</h2>
 
                 {error && <div className="alert alert-error">{error}</div>}
@@ -147,7 +147,7 @@ export function SignupPage() {
     return (
         <div className="auth-container">
             <div className="auth-box">
-                <h1>ServicePulse</h1>
+                <h1>UptimeX</h1>
                 <h2>Create Account</h2>
 
                 {error && <div className="alert alert-error">{error}</div>}
